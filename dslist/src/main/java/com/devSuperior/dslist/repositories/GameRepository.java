@@ -8,3 +8,4 @@ public interface GameRepository extends JpaRepository<Game , Long> {
 /* para acessar dados atraves desse JPA */
 	
 }
+  

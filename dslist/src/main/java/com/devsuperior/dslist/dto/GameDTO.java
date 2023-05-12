@@ -5,7 +5,9 @@ import org.springframework.beans.BeanUtils;
 import com.devsuperior.dslist.entities.Game;
 
 public class GameDTO {
-
+	
+ //fazer essa redundancia para padrão e para evitar loops
+	
 	private Long id;
 	private String title;
 	private Integer year;
@@ -18,6 +20,9 @@ public class GameDTO {
 	
 	public GameDTO(Game entity) {
 		BeanUtils.copyProperties(entity, this);
+	//copia as propiedades da entidade para este objeto 
+	//obss... tem que ter get e set
+		
 	}
 
 	public Long getId() {

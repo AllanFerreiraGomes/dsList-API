@@ -19,10 +19,11 @@ public class GameService {
 	@Autowired
 	private GameRepository gameRepository;
 	
-	@Transactional(readOnly = true)
+	@Transactional(readOnly = true) 
 	public GameDTO findById(@PathVariable Long listId) {
 		Game result = gameRepository.findById(listId).get();
-		return new GameDTO(result);
+		GameDTO dto = new GameDTO(result);
+		return dto;
 	}
 	
 	@Transactional(readOnly = true)

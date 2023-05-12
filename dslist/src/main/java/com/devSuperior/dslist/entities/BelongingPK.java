@@ -1,4 +1,4 @@
-package com.devSuperior.dslist.entities;
+package com.devsuperior.dslist.entities;
 
 import java.util.Objects;
 
@@ -6,30 +6,16 @@ import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-@Embeddable	// UM TIPO REPRESENTANDO DOIS CAMPOS NA TABELA
+@Embeddable
 public class BelongingPK {
-	/*
-	 * EsSA CLASSE auxiliar serve para receber a chave primaria dupla
-	 */
 
 	@ManyToOne
-	@JoinColumn(name = "game_id")
-	private Game game;
-	
-	
-	@ManyToOne
-	@JoinColumn(name = "list_id")
-	private GameList gameList;
+    @JoinColumn(name = "game_id")
+    private Game game;
 
-	public BelongingPK() {
-		super();
-	}
-
-	public BelongingPK(Game game, GameList gameList) {
-		super();
-		this.game = game;
-		this.gameList = gameList;
-	}
+    @ManyToOne
+    @JoinColumn(name = "list_id")
+    private GameList list;
 
 	public Game getGame() {
 		return game;
@@ -39,17 +25,17 @@ public class BelongingPK {
 		this.game = game;
 	}
 
-	public GameList getGameList() {
-		return gameList;
+	public GameList getList() {
+		return list;
 	}
 
-	public void setGameList(GameList gameList) {
-		this.gameList = gameList;
+	public void setList(GameList list) {
+		this.list = list;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(game, gameList);
+		return Objects.hash(game, list);
 	}
 
 	@Override
@@ -61,7 +47,6 @@ public class BelongingPK {
 		if (getClass() != obj.getClass())
 			return false;
 		BelongingPK other = (BelongingPK) obj;
-		return Objects.equals(game, other.game) && Objects.equals(gameList, other.gameList);
+		return Objects.equals(game, other.game) && Objects.equals(list, other.list);
 	}
-
 }
